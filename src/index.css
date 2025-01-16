@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  @apply font-nunito;
+}
+
+body {
+  min-height: 100vh;
+}
