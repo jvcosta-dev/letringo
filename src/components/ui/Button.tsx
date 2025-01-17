@@ -1,4 +1,3 @@
-import { dialog } from "framer-motion/client";
 import { FunctionComponent, ReactNode } from "react";
 
 interface ButtonProps {
@@ -22,6 +21,18 @@ const Button: FunctionComponent<ButtonProps> = ({
   onClick,
   disabled,
 }) => {
+  const playSound = () => {
+    const audio = new Audio("/sounds/click.mp3");
+    audio.play();
+  };
+
+  const handleClick = () => {
+    if (!disabled) {
+      playSound();
+      if (onClick) onClick();
+    }
+  };
+
   return (
     <button
       type={submit ? "submit" : "button"}
@@ -33,7 +44,7 @@ const Button: FunctionComponent<ButtonProps> = ({
       } ${
         fill ? "w-full" : "w-max"
       } flex justify-center p-3 font-bold uppercase border-2 border-b-4 rounded-xl active:scale-105 transition-transform duration-75 disabled:bg-neutral-gray disabled:border-neutral-dark`}
-      onClick={onClick}
+      onClick={handleClick}
       disabled={disabled}
     >
       {children}
