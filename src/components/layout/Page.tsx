@@ -19,7 +19,7 @@ const Page: FunctionComponent<PageProps> = ({
 
   return (
     <motion.main
-      className="min-h-screen w-screen flex flex-grow flex-col gap-5 pt-8 px-6 pb-6 bg-white"
+      className="min-h-screen w-screen flex flex-grow flex-col gap-5 pt-8 px-6 pb-6 md:px-32 lg:px-52 xl:px-[512px] bg-white"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={exitVariants[exitDirection]}
