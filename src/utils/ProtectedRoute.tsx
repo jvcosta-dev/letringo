@@ -11,20 +11,13 @@ function ProtectedRoute({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const verifyToken = async () => {
-    if (!token) {
-      setIsAuthenticated(false);
+    if (token) {
+      setIsAuthenticated(true);
       setIsLoading(false);
       return;
     }
 
-    try {
-      await request({ url: "/auth/verify", method: "GET" }, true);
-      setIsAuthenticated(true);
-    } catch (error) {
-      console.error("invalid token:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
