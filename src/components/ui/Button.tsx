@@ -1,4 +1,6 @@
 import { FunctionComponent, ReactNode } from "react";
+import { motion } from "framer-motion";
+import { springHover } from "../../utils/animations";
 
 interface ButtonProps {
   children: ReactNode;
@@ -34,7 +36,10 @@ const Button: FunctionComponent<ButtonProps> = ({
   };
 
   return (
-    <button
+    <motion.button
+      whileHover={springHover.whileHover}
+      whileTap={springHover.whileTap}
+      transition={springHover.transition}
       type={submit ? "submit" : "button"}
       aria-label={ariaLabel}
       className={`text-${size} ${
@@ -43,12 +48,12 @@ const Button: FunctionComponent<ButtonProps> = ({
           : "bg-primary border-blue-dark text-white"
       } ${
         fill ? "w-full" : "w-max"
-      } flex justify-center p-3 font-bold uppercase border-2 border-b-4 rounded-xl active:scale-105 transition-transform duration-75 disabled:bg-neutral-gray disabled:border-neutral-dark`}
+      } flex justify-center p-3 font-bold uppercase border-2 border-b-4 rounded-xl disabled:bg-neutral-gray disabled:border-neutral-dark`}
       onClick={handleClick}
       disabled={disabled}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 
