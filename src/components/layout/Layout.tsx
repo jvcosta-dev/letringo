@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
-    <div className="w-screen h-screen flex flex-col justify-between">
+    <div className="h-screen flex flex-col justify-between text-neutral-dark dark:bg-[#202020] dark:text-white">
       {children}
       <Navbar />
     </div>

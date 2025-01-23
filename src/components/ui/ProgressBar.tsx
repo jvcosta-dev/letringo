@@ -14,7 +14,7 @@ const ProgressBar: FunctionComponent<ProgressBarProps> = ({
       <label className="text-xl font-bold">
         {value}/{maxValue}
       </label>
-      <span className="w-full border-2 h-4 text-center border-neutral-gray rounded-full">
+      <span className="w-full border-[3px] h-4 text-center rounded-full overflow-clip border-yellow bg-white ">
         <div
           className="bg-yellow h-full"
           style={{ width: `${(value / maxValue) * 100}%` }}

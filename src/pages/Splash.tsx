@@ -1,6 +1,6 @@
 function Splash() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center bg-primary">
+    <div className="absolute z-30 w-screen h-screen flex justify-center items-center bg-primary">
       <img
         src="/icons/splash.png"
         alt="letringo logo"

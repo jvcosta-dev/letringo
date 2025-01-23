@@ -5,8 +5,3 @@
 * {
   @apply font-nunito;
 }
-
-body {
-  min-height: 100vh;
-  @apply text-neutral-dark;
-}
