@@ -1,6 +1,7 @@
 import { FunctionComponent, ReactNode } from "react";
 import { motion } from "framer-motion";
 import { springHover } from "../../utils/animations";
+import { useSettings } from "../../contexts/SettingsContext";
 
 interface ButtonProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface ButtonProps {
   fill?: boolean;
   onClick?: () => void;
   disabled?: boolean;
+  bgColor?: string;
 }
 
 const Button: FunctionComponent<ButtonProps> = ({
@@ -22,29 +24,35 @@ const Button: FunctionComponent<ButtonProps> = ({
   fill,
   onClick,
   disabled,
+  bgColor,
 }) => {
+  const { animations, sound } = useSettings();
+
   const playSound = () => {
     const audio = new Audio("/sounds/click.mp3");
     audio.play();
   };
 
   const handleClick = () => {
+    if (sound) playSound();
+
     if (!disabled) {
-      playSound();
       if (onClick) onClick();
     }
   };
 
   return (
     <motion.button
-      whileHover={springHover.whileHover}
-      whileTap={springHover.whileTap}
-      transition={springHover.transition}
+      whileHover={animations ? springHover.whileHover : undefined}
+      whileTap={animations ? springHover.whileTap : undefined}
+      transition={animations ? springHover.transition : undefined}
       type={submit ? "submit" : "button"}
       aria-label={ariaLabel}
       className={`text-${size} ${
-        outlined
-          ? "text-primary border-neutral-gray"
+        bgColor && `bg-${bgColor} border-neutral-dark dark:border-white`
+      } ${
+        !bgColor && outlined
+          ? "text-primary dark:text-white border-neutral-gray"
           : "bg-primary border-blue-dark text-white"
       } ${
         fill ? "w-full" : "w-max"
