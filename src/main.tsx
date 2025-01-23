@@ -1,7 +1,13 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  Outlet,
+} from "react-router-dom";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -15,16 +21,74 @@ import "./index.css";
 import Welcome from "./pages/Welcome";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Splash from "./pages/Splash";
+import Home from "./pages/Home";
+import Layout from "./components/layout/Layout";
+import Library from "./pages/Library";
+import Ranking from "./pages/Ranking";
+import Profile from "./pages/Profile";
+import { SettingsProvider } from "./contexts/SettingsContext";
+import Settings from "./pages/Settings";
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        {/*  <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Splash />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          element={
+            <Layout>
+              <Outlet />
+            </Layout>
+          }
+        >
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/library"
+            element={
+              <ProtectedRoute>
+                <Library />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ranking"
+            element={
+              <ProtectedRoute>
+                <Ranking />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+        </Route>
       </Routes>
     </AnimatePresence>
   );
@@ -33,9 +97,11 @@ function AnimatedRoutes() {
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <UserProvider>
-      <BrowserRouter>
-        <AnimatedRoutes />
-      </BrowserRouter>
+      <SettingsProvider>
+        <BrowserRouter>
+          <AnimatedRoutes />
+        </BrowserRouter>
+      </SettingsProvider>
     </UserProvider>
   </StrictMode>
 );
