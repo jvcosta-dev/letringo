@@ -9,6 +9,7 @@ type UserContextType = {
     config: AxiosRequestConfig,
     protectedRoute?: boolean
   ) => Promise<any>;
+  fetcher: (url: string) => Promise<any>;
 };
 
 const api = axios.create({
@@ -21,8 +22,6 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
   const [token, setToken] = useState<string | null>(() =>
     localStorage.getItem("token")
   );
-
-  console.log("token", token);
 
   const login = async (username: string, password: string) => {
     try {
@@ -73,8 +72,16 @@ export const UserProvider = ({ children }: { children: React.ReactNode }) => {
     }
   };
 
+  const fetcher = (url: string) =>
+    request(
+      {
+        url,
+      },
+      true
+    );
+
   return (
-    <UserContext.Provider value={{ token, login, logout, request }}>
+    <UserContext.Provider value={{ token, login, logout, request, fetcher }}>
       {children}
     </UserContext.Provider>
   );
