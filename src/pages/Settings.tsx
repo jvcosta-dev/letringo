@@ -14,7 +14,7 @@ function Settings() {
     toggleSound,
   } = useSettings();
   return (
-    <Page exitDirection="down">
+    <Page exitDirection="right">
       <BackButton />
       <Section name="Geral">
         <div className="border-4 border-neutral-gray rounded-xl">

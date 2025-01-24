@@ -23,7 +23,7 @@ const MonthlyStats: FunctionComponent<MonthlyStatsProps> = () => {
   return (
     <>
       {data && (
-        <Section name="Resumo Mesal">
+        <Section name="Resumo Mensal">
           <StatsList
             completed_count={data.completed_books}
             stats={data.stats}
