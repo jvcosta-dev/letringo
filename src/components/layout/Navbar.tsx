@@ -13,7 +13,7 @@ const Navbar: FunctionComponent<NavbarProps> = () => {
   return (
     <nav className="w-full py-6 px-6 md:px-32 lg:px-52 xl:px-[512px] border-t-4 border-neutral-gray dark:border-neutral-dark">
       <ul className="flex items-center justify-between">
-        <NavItem href="/home" ariaLabel="início" Icon={HomeRounded} />
+        <NavItem href="/" ariaLabel="início" Icon={HomeRounded} />
         <NavItem
           href="/library"
           ariaLabel="biblioteca"

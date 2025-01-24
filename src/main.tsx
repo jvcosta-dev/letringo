@@ -35,7 +35,7 @@ function AnimatedRoutes() {
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Splash />} />
+        <Route path="/splash" element={<Splash />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
@@ -57,7 +57,7 @@ function AnimatedRoutes() {
           }
         >
           <Route
-            path="/home"
+            path="/"
             element={
               <ProtectedRoute>
                 <Home />
