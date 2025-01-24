@@ -7,7 +7,7 @@ interface NotFoundProps {}
 
 const NotFound: FunctionComponent<NotFoundProps> = () => {
   return (
-    <div className="top-0 fixed w-screen h-screen flex flex-col gap-4 items-center justify-center">
+    <div className="top-0 fixed w-screen h-screen flex flex-col gap-4 items-center justify-center dark:text-white dark:bg-[#202020]">
       <img
         src="/icons/rounded.png"
         alt="letringo logo"
