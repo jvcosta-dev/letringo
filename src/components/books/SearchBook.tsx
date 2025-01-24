@@ -65,7 +65,9 @@ const SearchBook: FunctionComponent<SearchBookProps> = () => {
         </Button>
       </form>
       {query && data && (!data.books || data.books.length === 0) && (
-        <div className="text-gray-500">Nenhum resultado encontrado</div>
+        <div className="text-xl text-center font-bold">
+          Nenhum resultado encontrado.
+        </div>
       )}
       {data && data.books && data.books.length >= 1 && (
         <GenreList books={data.books} genre="Resultados" />
