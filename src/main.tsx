@@ -29,12 +29,14 @@ import Ranking from "./pages/Ranking";
 import Profile from "./pages/Profile";
 import { SettingsProvider } from "./contexts/SettingsContext";
 import Settings from "./pages/Settings";
+import NotFound from "./pages/NotFound";
 
 function AnimatedRoutes() {
   const location = useLocation();
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
+        <Route path="/*" element={<NotFound />} />
         <Route path="/splash" element={<Splash />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />
