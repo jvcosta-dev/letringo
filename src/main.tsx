@@ -30,6 +30,7 @@ import Profile from "./pages/Profile";
 import { SettingsProvider } from "./contexts/SettingsContext";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
+import Book from "./pages/Book";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -91,6 +92,14 @@ function AnimatedRoutes() {
             }
           />
         </Route>
+        <Route
+          path="/book/:id"
+          element={
+            <ProtectedRoute>
+              <Book />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
