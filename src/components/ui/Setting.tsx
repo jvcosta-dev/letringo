@@ -1,13 +1,5 @@
-import {
-  ToggleOff,
-  ToggleOffOutlined,
-  ToggleOffRounded,
-  ToggleOn,
-  ToggleOnOutlined,
-  ToggleOnRounded,
-} from "@mui/icons-material";
+import { ToggleOffOutlined, ToggleOnOutlined } from "@mui/icons-material";
 import { FunctionComponent } from "react";
-import Button from "./Button";
 
 interface SettingProps {
   value: boolean;
