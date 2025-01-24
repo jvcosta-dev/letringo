@@ -12,11 +12,13 @@ import {
 interface StatsListProps {
   stats: IStat[];
   completed_count: number;
+  streak?: number;
 }
 
 const StatsList: FunctionComponent<StatsListProps> = ({
   stats,
   completed_count,
+  streak,
 }) => {
   const read_time = (
     stats.reduce((total, stat) => total + stat.read_time, 0) / 3600
@@ -37,7 +39,7 @@ const StatsList: FunctionComponent<StatsListProps> = ({
       <Stat
         Icon={Whatshot}
         iconColor="red"
-        value={stats.length}
+        value={streak ? streak : stats.length}
         label="Dias Ativos"
       />
       <Stat Icon={BookRounded} value={completed_count} label="Conclusões" />
