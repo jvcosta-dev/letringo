@@ -5,3 +5,15 @@
 * {
   @apply font-nunito;
 }
+
+body {
+  overflow-x: hidden;
+}
+
+body.dark {
+  background-color: #202020;
+}
+
+:root:has(.no-doc-scroll) {
+  overflow: hidden;
+}

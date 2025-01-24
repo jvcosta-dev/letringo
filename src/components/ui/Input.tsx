@@ -38,7 +38,7 @@ const Input: FunctionComponent<InputProps> = ({
           value={value}
           onChange={onChange}
           required={required}
-          className="w-full placeholder:text-neutral-gray outline-none group"
+          className="w-full placeholder:text-neutral-gray outline-none group bg-transparent"
         />
       </div>
     </label>

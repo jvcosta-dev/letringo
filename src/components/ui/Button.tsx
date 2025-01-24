@@ -49,7 +49,7 @@ const Button: FunctionComponent<ButtonProps> = ({
       type={submit ? "submit" : "button"}
       aria-label={ariaLabel}
       className={`text-${size} ${
-        bgColor && `bg-${bgColor} border-neutral-dark dark:border-white`
+        bgColor && `bg-${bgColor} border-neutral-dark`
       } ${
         !bgColor && outlined
           ? "text-primary dark:text-white border-neutral-gray"

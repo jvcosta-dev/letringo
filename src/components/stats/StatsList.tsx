@@ -2,7 +2,12 @@ import { FunctionComponent } from "react";
 
 import { Stat as IStat } from "../../interfaces/stat";
 import Stat from "./Stat";
-import { AutoStories, BookRounded, Timer, Whatshot } from "@mui/icons-material";
+import {
+  AutoStoriesRounded,
+  BookRounded,
+  Timer,
+  Whatshot,
+} from "@mui/icons-material";
 
 interface StatsListProps {
   stats: IStat[];
@@ -24,7 +29,11 @@ const StatsList: FunctionComponent<StatsListProps> = ({
 
   return (
     <div className="w-full grid grid-cols-2 grid-rows-1 gap-3">
-      <Stat Icon={AutoStories} value={pages_count} label="Páginas Lidas" />
+      <Stat
+        Icon={AutoStoriesRounded}
+        value={pages_count}
+        label="Páginas Lidas"
+      />
       <Stat
         Icon={Whatshot}
         iconColor="red"
