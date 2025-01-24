@@ -12,7 +12,10 @@ interface UserMessageProps {}
 const UserMessage: FunctionComponent<UserMessageProps> = () => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/auth/me`, fetcher);
+  const { data, isLoading, error } = useSWR(`/auth/me`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+  });
   if (isLoading) return <Loading />;
   if (error) {
     return <Error code={error.code} />;

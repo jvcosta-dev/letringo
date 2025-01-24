@@ -10,7 +10,10 @@ interface StreakProps {}
 const Streak: FunctionComponent<StreakProps> = () => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/stats/streak`, fetcher);
+  const { data, isLoading, error } = useSWR(`/stats/streak`, fetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+  });
   if (isLoading) return <Loading />;
   if (error) return <></>;
 
