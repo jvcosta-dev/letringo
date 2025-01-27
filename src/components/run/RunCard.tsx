@@ -19,6 +19,7 @@ const RunCard: FunctionComponent<RunCardProps> = ({ run }) => {
     quality: 100,
   });
 
+  const pageList = run.page_list.split(",");
   return (
     <motion.div
       whileHover={springHover.whileHover}
@@ -26,7 +27,11 @@ const RunCard: FunctionComponent<RunCardProps> = ({ run }) => {
       transition={springHover.transition}
       className={`cursor-pointer relative p-2 rounded-xl overflow-clip text-white bg-neutral-dark`}
       style={{ backgroundColor: loading || error ? "" : data }}
-      onClick={() => navigate(`/read/${run.id}?page=${0}`)}
+      onClick={() =>
+        navigate(
+          `/read/${run.id}?page=${parseInt(pageList[pageList.length - 1]) + 1}`
+        )
+      }
     >
       <div className="flex flex-col gap-4 p-3 rounded-xl border-2 border-b-4 z-20 relative border-white">
         <div className="flex flex-col gap-0">
