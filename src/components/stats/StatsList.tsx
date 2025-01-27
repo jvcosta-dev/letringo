@@ -39,7 +39,7 @@ const StatsList: FunctionComponent<StatsListProps> = ({
       <Stat
         Icon={Whatshot}
         iconColor="red"
-        value={streak ? streak : stats.length}
+        value={streak != null ? streak : stats.length}
         label="Dias Ativos"
       />
       <Stat Icon={BookRounded} value={completed_count} label="Conclusões" />
