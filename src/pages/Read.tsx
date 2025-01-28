@@ -114,7 +114,7 @@ const Read: FunctionComponent<ReadProps> = () => {
 
   return (
     <>
-      <Page exitDirection="down">
+      <Page>
         <div className="flex items-center justify-between">
           <BackButton path="/" />
           <div className="flex items-center gap-1   lg:gap-2">
