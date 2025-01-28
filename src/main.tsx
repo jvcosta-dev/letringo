@@ -32,6 +32,7 @@ import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Book from "./pages/Book";
 import Read from "./pages/Read";
+import Sorry from "./pages/Sorry";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -39,6 +40,7 @@ function AnimatedRoutes() {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path="/*" element={<NotFound />} />
+        <Route path="/sorry" element={<Sorry />} />
         <Route path="/splash" element={<Splash />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/register" element={<Register />} />

@@ -7,15 +7,15 @@ interface NotFoundProps {}
 
 const NotFound: FunctionComponent<NotFoundProps> = () => {
   return (
-    <div className="top-0 fixed w-screen h-screen flex flex-col gap-4 items-center justify-center dark:text-white dark:bg-[#202020]">
+    <div className="top-0 fixed w-screen h-screen flex flex-col gap-4 items-center justify-center bg-primary text-white">
       <img
-        src="/icons/rounded.png"
+        src="/icons/splash.png"
         alt="letringo logo"
-        width={252}
-        height={252}
-        className={`w-64 h-64`}
+        width={144}
+        height={144}
+        className={`w-36 h-w-36 animate-bounce`}
       />
-      <MainTitle>[404] Página não encontrada.</MainTitle>
+      <MainTitle>Página não encontrada.</MainTitle>
       <Link to={"/"}>
         <Button ariaLabel="voltar ao início" size="xl">
           Voltar ao início

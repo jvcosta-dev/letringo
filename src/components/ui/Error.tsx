@@ -1,21 +1,12 @@
 import { FunctionComponent } from "react";
-import Section from "../layout/Section";
-import { Block } from "@mui/icons-material";
+import { Navigate } from "react-router-dom";
 
 interface ErrorProps {
   code: string | undefined;
 }
 
 const Error: FunctionComponent<ErrorProps> = ({ code }) => {
-  return (
-    <Section name={`Erro: ${code}`}>
-      <div
-        className={`h-40 w-80 flex justify-center items-center relative p-2 rounded-xl overflow-clip bg-red`}
-      >
-        <Block style={{ width: 48, height: 48 }} />
-      </div>
-    </Section>
-  );
+  return <Navigate to={`/sorry?code=${code}`} replace />;
 };
 
 export default Error;
