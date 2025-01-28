@@ -48,9 +48,15 @@ const CreateRunButton: FunctionComponent<CreateRunButtonProps> = ({
   return (
     <>
       {data && data && data.run ? (
-        <Button ariaLabel="iniciar leitura" size="xl" fill disabled>
-          Já Lendo
-        </Button>
+        data.run.finish_date ? (
+          <Button ariaLabel="iniciar leitura" size="xl" fill disabled>
+            Já Leu
+          </Button>
+        ) : (
+          <Button ariaLabel="iniciar leitura" size="xl" fill disabled>
+            Já Lendo
+          </Button>
+        )
       ) : (
         <form onSubmit={createRun}>
           <Button ariaLabel="iniciar leitura" size="xl" fill submit>
