@@ -12,10 +12,7 @@ interface MonthlyStatsProps {}
 const MonthlyStats: FunctionComponent<MonthlyStatsProps> = () => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/stats/monthly`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+  const { data, isLoading, error } = useSWR(`/stats/monthly`, fetcher);
   if (error) return <Error code={error.code} />;
 
   if (isLoading) return <Loading />;

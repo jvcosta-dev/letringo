@@ -33,6 +33,7 @@ import NotFound from "./pages/NotFound";
 import Book from "./pages/Book";
 import Read from "./pages/Read";
 import Sorry from "./pages/Sorry";
+import { SWRConfig } from "swr";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -121,7 +122,17 @@ createRoot(document.getElementById("root")!).render(
     <UserProvider>
       <SettingsProvider>
         <BrowserRouter>
-          <AnimatedRoutes />
+          <SWRConfig
+            value={{
+              dedupingInterval: 50000,
+              revalidateOnFocus: false,
+              revalidateOnReconnect: true,
+              shouldRetryOnError: true,
+              errorRetryCount: 1,
+            }}
+          >
+            <AnimatedRoutes />
+          </SWRConfig>
         </BrowserRouter>
       </SettingsProvider>
     </UserProvider>

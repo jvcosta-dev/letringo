@@ -12,10 +12,7 @@ interface AllStatsProps {}
 const AllStats: FunctionComponent<AllStatsProps> = () => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/stats`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+  const { data, isLoading, error } = useSWR(`/stats`, fetcher);
   if (error) return <Error code={error.code} />;
 
   if (isLoading) return <Loading />;

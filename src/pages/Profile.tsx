@@ -12,10 +12,7 @@ import AllStats from "../components/stats/AllStats";
 function Profile() {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/auth/me`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+  const { data, isLoading, error } = useSWR(`/auth/me`, fetcher);
   if (isLoading) return <Loading />;
   if (error) {
     return <Error code={error.code} />;

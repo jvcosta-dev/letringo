@@ -18,10 +18,7 @@ const CreateRunButton: FunctionComponent<CreateRunButtonProps> = ({
 
   const navigate = useNavigate();
 
-  const { data, isLoading, error } = useSWR(`/run/book/${book_id}`, fetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-  });
+  const { data, isLoading, error } = useSWR(`/run/book/${book_id}`, fetcher);
   if (isLoading) return <Loading />;
   if (error && error.code) {
     return <Error code={error.code} />;
