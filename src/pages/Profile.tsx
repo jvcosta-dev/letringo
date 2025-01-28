@@ -21,7 +21,7 @@ function Profile() {
     return <Error code={error.code} />;
   }
   return (
-    <Page isInLayout instant>
+    <Page isInLayout>
       <div className="flex justify-end">
         <Link to={"/settings"}>
           <Button ariaLabel="" size="xl">

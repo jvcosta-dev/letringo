@@ -6,7 +6,7 @@ import UserMessage from "../components/stats/UserMessage";
 
 function Home() {
   return (
-    <Page isInLayout instant>
+    <Page isInLayout>
       <UserMessage />
       <ActiveRuns />
       <MonthlyStats />

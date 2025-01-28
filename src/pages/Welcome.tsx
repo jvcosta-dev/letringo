@@ -5,7 +5,7 @@ import Button from "../components/ui/Button";
 
 function Welcome() {
   return (
-    <Page exitDirection="up">
+    <Page>
       <div className="flex flex-grow flex-col justify-between">
         <div className="flex flex-grow flex-col items-center justify-center">
           <img

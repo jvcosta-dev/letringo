@@ -28,7 +28,7 @@ const Book: FunctionComponent<BookProps> = () => {
   return (
     <>
       {data && data.book ? (
-        <Page exitDirection="left">
+        <Page>
           <BackButton />
           <BookDetails book={data.book} />
         </Page>

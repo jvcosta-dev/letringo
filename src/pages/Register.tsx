@@ -71,7 +71,7 @@ function Register() {
   };
 
   return (
-    <Page exitDirection="down">
+    <Page>
       <BackButton path="/welcome" />
       <MainTitle color="primary">Registre-se</MainTitle>
       <form

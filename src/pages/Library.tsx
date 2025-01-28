@@ -16,7 +16,7 @@ function Library() {
   if (isLoading) return <Loading />;
 
   return (
-    <Page isInLayout instant>
+    <Page isInLayout>
       <SearchBook />
       {data.genres.map(
         (genre: {

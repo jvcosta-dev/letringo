@@ -11,7 +11,7 @@ body {
 }
 
 body.dark {
-  background-color: #202020;
+  background-color: black;
 }
 
 :root:has(.no-doc-scroll) {

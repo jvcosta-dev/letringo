@@ -39,7 +39,7 @@ function Login() {
   };
 
   return (
-    <Page exitDirection="down">
+    <Page>
       <BackButton path="/welcome" />
       <MainTitle color="primary">Login</MainTitle>
       <form

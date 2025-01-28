@@ -4,7 +4,7 @@ import MainTitle from "../components/ui/MainTitle";
 
 function Ranking() {
   return (
-    <Page isInLayout instant>
+    <Page isInLayout>
       <div className="flex flex-col flex-grow items-center justify-center">
         <EngineeringRounded
           className="text-primary"
