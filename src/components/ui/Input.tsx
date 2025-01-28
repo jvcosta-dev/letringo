@@ -24,7 +24,7 @@ const Input: FunctionComponent<InputProps> = ({
   return (
     <label
       htmlFor={name}
-      className="w-full flex flex-col gap-0 text-xl font-bold text-neutral-dark"
+      className="w-full flex flex-col gap-0 text-xl font-bold text-neutral-dark dark:text-white"
     >
       {label}
       <div className="w-full flex items-center p-3 gap-1 rounded-xl border-2 border-b-4 border-neutral-gray group">
