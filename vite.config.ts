@@ -11,6 +11,7 @@ const manifestForPlugin: Partial<VitePWAOptions> = {
     display: "standalone",
     orientation: "portrait",
     theme_color: "#4A63C9",
+    background_color: "#4A63C9",
     icons: [
       {
         src: "/windows11/SmallTile.scale-100.png",
