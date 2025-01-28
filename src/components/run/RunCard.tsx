@@ -19,7 +19,7 @@ const RunCard: FunctionComponent<RunCardProps> = ({ run }) => {
     quality: 100,
   });
 
-  const pageList = run.page_list.split(",");
+  const pageList = run.page_list ? run.page_list.split(",") : ["0"];
   return (
     <motion.div
       whileHover={springHover.whileHover}
