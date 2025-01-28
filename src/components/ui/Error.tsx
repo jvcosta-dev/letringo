@@ -10,7 +10,7 @@ const Error: FunctionComponent<ErrorProps> = ({ code }) => {
   return (
     <Section name={`Erro: ${code}`}>
       <div
-        className={`h-40 flex justify-center items-center relative p-2 rounded-xl overflow-clip bg-red`}
+        className={`h-40 w-80 flex justify-center items-center relative p-2 rounded-xl overflow-clip bg-red`}
       >
         <Block style={{ width: 48, height: 48 }} />
       </div>

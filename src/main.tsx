@@ -31,6 +31,7 @@ import { SettingsProvider } from "./contexts/SettingsContext";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Book from "./pages/Book";
+import Read from "./pages/Read";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -97,6 +98,14 @@ function AnimatedRoutes() {
           element={
             <ProtectedRoute>
               <Book />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/read/:id"
+          element={
+            <ProtectedRoute>
+              <Read />
             </ProtectedRoute>
           }
         />
