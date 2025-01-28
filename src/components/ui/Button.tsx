@@ -56,7 +56,7 @@ const Button: FunctionComponent<ButtonProps> = ({
           : "bg-primary border-blue-dark text-white"
       } ${
         fill ? "w-full" : "w-max"
-      } flex justify-center p-3 font-bold uppercase border-2 border-b-4 rounded-xl disabled:bg-neutral-gray disabled:border-neutral-dark`}
+      } flex justify-center p-3 font-bold uppercase border-2 border-b-4 rounded-xl disabled:bg-neutral-gray disabled:dark:bg-neutral-dark disabled:border-neutral-dark`}
       onClick={handleClick}
       disabled={disabled}
     >
