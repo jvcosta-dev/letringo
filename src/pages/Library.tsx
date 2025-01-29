@@ -13,7 +13,12 @@ function Library() {
 
   const { data, isLoading, error } = useSWR(`/books/library`, fetcher);
   if (error) return <Error code={error.code} />;
-  if (isLoading) return <Loading />;
+  if (isLoading)
+    return (
+      <Page>
+        <Loading />
+      </Page>
+    );
 
   return (
     <Page isInLayout>

@@ -17,7 +17,12 @@ const Book: FunctionComponent<BookProps> = () => {
   const { id } = useParams();
 
   const { data, isLoading, error } = useSWR(`/books/${id}`, fetcher);
-  if (isLoading) return <Loading />;
+  if (isLoading)
+    return (
+      <Page>
+        <Loading />
+      </Page>
+    );
   if (error && error.code != "ERR_BAD_REQUEST") {
     return <Error code={error.code} />;
   }
