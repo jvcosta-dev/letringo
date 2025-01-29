@@ -68,7 +68,7 @@ const BookDetails: FunctionComponent<BookDetailsProps> = ({ book }) => {
           <BookDetailItem Icon={DomainRounded} label={book.publisher} />
           <BookDetailItem
             Icon={CalendarMonthRounded}
-            label={`${book.total_pages} Páginas`}
+            label={`${new Date(book.launch_date).toLocaleDateString("pt-BR")}`}
           />
         </div>
       </Section>
