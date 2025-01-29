@@ -180,7 +180,7 @@ const Read: FunctionComponent = () => {
               <Button
                 size="xl"
                 ariaLabel="diminuir escala da página"
-                disabled={scale <= 1}
+                disabled={scale <= 0.4}
                 onClick={zoomOut}
               >
                 <ZoomOutRounded />
@@ -188,7 +188,7 @@ const Read: FunctionComponent = () => {
               <Button
                 size="xl"
                 ariaLabel="aumentar escala da página"
-                disabled={scale >= 2}
+                disabled={scale >= 3}
                 onClick={zoomIn}
               >
                 <ZoomInRounded />
