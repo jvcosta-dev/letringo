@@ -20,7 +20,7 @@ const UserMessage: FunctionComponent<UserMessageProps> = () => {
 
   return (
     <section className="w-full flex items-center justify-between">
-      <MainTitle start>Olá @{data.display_name}!</MainTitle>
+      <MainTitle start>Bem vindo ao Letringo! @{data.display_name}</MainTitle>
       <Streak />
     </section>
   );
