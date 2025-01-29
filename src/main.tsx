@@ -8,9 +8,10 @@ import {
   useLocation,
   Outlet,
 } from "react-router-dom";
-
 import { AnimatePresence } from "framer-motion";
+import { SWRConfig } from "swr";
 
+import { SettingsProvider } from "./contexts/SettingsContext";
 import { UserProvider } from "./contexts/UserContext";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
@@ -27,13 +28,11 @@ import Layout from "./components/layout/Layout";
 import Library from "./pages/Library";
 import Ranking from "./pages/Ranking";
 import Profile from "./pages/Profile";
-import { SettingsProvider } from "./contexts/SettingsContext";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Book from "./pages/Book";
 import Read from "./pages/Read";
 import Sorry from "./pages/Sorry";
-import { SWRConfig } from "swr";
 
 function AnimatedRoutes() {
   const location = useLocation();
