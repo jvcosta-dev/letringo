@@ -73,7 +73,7 @@ const BookDetails: FunctionComponent<BookDetailsProps> = ({ book }) => {
         </div>
       </Section>
       <Section name="Descrição">
-        <blockquote className="pb-4">{book.description}</blockquote>
+        <blockquote className="pb-4 lowercase">{book.description}</blockquote>
       </Section>
       {isShareModalOpen && (
         <ConfirmModal

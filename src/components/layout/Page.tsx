@@ -11,7 +11,7 @@ const Page: FunctionComponent<PageProps> = ({ children, isInLayout }) => {
     <motion.main
       className={`flex flex-grow h-full flex-col gap-5 px-6 pt-6 pb-6 md:px-32 lg:px-52 xl:px-[512px] ${
         isInLayout
-          ? "overflow-scroll"
+          ? "overflow-y-scroll"
           : "w-screen h-screen text-neutral-dark dark:bg-black dark:text-white"
       }`}
       initial={{ opacity: 0 }}
