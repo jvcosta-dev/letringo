@@ -41,6 +41,7 @@ const RunCard: FunctionComponent<RunCardProps> = ({ run }) => {
         <ProgressBar value={run.pages_count} maxValue={run.goal} />
       </div>
       <img
+        rel="preconnect"
         src={run.book.thumb_url}
         alt={`capa de: ${run.book.name}`}
         className="absolute w-28 h-40 -rotate-12 origin-top-right top-0 right-0 z-10"

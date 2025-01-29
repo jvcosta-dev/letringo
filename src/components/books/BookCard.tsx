@@ -26,6 +26,7 @@ const BookCard: FunctionComponent<BookCardProps> = ({ book }) => {
       onClick={() => navigate(`/book/${book.id}`)}
     >
       <img
+        rel="preconnect"
         src={book.thumb_url}
         width={144}
         height={208}
