@@ -125,7 +125,6 @@ createRoot(document.getElementById("root")!).render(
             value={{
               dedupingInterval: 50000,
               revalidateOnFocus: false,
-              revalidateOnReconnect: true,
               shouldRetryOnError: true,
               errorRetryCount: 1,
             }}
