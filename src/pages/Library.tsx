@@ -16,7 +16,8 @@ function Library() {
   if (isLoading)
     return (
       <Page>
-        <Loading />
+        <Loading singleElement />
+        <Loading elementCount={4} />
       </Page>
     );
 
