@@ -1,7 +1,5 @@
-import { PersonRounded, SettingsRounded } from "@mui/icons-material";
+import { PersonRounded } from "@mui/icons-material";
 import { FunctionComponent } from "react";
-import { Link } from "react-router-dom";
-import Button from "../ui/Button";
 import useSWR from "swr";
 import { useUser } from "../../contexts/UserContext";
 import Loading from "../ui/Loading";
