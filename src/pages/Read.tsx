@@ -180,7 +180,7 @@ const Read: FunctionComponent = () => {
               <Button
                 size="xl"
                 ariaLabel="diminuir escala da página"
-                disabled={scale <= 0.4}
+                disabled={scale <= 0.5}
                 onClick={zoomOut}
               >
                 <ZoomOutRounded />
@@ -195,18 +195,12 @@ const Read: FunctionComponent = () => {
               </Button>
             </div>
           </div>
-          <div className="flex flex-grow items-start justify-center overflow-scroll">
-            <Document
-              file={pdfBlobUrl}
-              onLoadSuccess={onLoadSuccess}
-              loading="Carregando PDF..."
-            >
+          <div className="flex flex-grow overflow-auto">
+            <Document file={pdfBlobUrl} onLoadSuccess={onLoadSuccess}>
               <PagePDF
                 pageNumber={pageNumber}
                 renderTextLayer={false}
                 renderAnnotationLayer={false}
-                className="h-full"
-                loading="Carregando página..."
                 scale={scale}
               />
             </Document>
