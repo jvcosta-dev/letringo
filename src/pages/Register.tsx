@@ -17,7 +17,7 @@ import { getErrorMessage } from "../utils/errors";
 import { AxiosError } from "axios";
 
 function Register() {
-  const { login, request } = useUser();
+  const { request } = useUser();
 
   const navigate = useNavigate();
 
@@ -32,7 +32,6 @@ function Register() {
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setErr("");
-    console.log(name, email, username, password, confirmPassword);
 
     if (password != confirmPassword) {
       setErr("As senhas precisam ser idênticas");
@@ -59,13 +58,7 @@ function Register() {
       return;
     }
 
-    try {
-      await login(email, password);
-      navigate("/");
-    } catch (err) {
-      setErr("Erro de conexão");
-      return;
-    }
+    navigate("/login");
   };
 
   return (
