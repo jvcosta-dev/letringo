@@ -6,6 +6,7 @@ import Button from "../components/ui/Button";
 import Setting from "../components/ui/Setting";
 import { useSettings } from "../contexts/SettingsContext";
 import { useUser } from "../contexts/UserContext";
+import { mutate } from "swr";
 
 function Settings() {
   const {
@@ -44,8 +45,9 @@ function Settings() {
             ariaLabel="finalizar sessão"
             size="xl"
             onClick={() => {
-              logout;
-              navigate("/login");
+              logout();
+              mutate(() => true);
+              navigate("/login", { replace: true });
             }}
             fill
           >

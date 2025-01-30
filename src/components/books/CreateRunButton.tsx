@@ -1,5 +1,5 @@
 import { FormEvent, FunctionComponent } from "react";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 
 import { useUser } from "../../contexts/UserContext";
 import Loading from "../ui/Loading";
@@ -37,6 +37,7 @@ const CreateRunButton: FunctionComponent<CreateRunButtonProps> = ({
         },
         true
       );
+      mutate("/run/active", undefined, true);
       navigate("/");
     } catch (error) {
       console.log(error);

@@ -14,9 +14,9 @@ interface ActiveRunsProps {}
 const ActiveRuns: FunctionComponent<ActiveRunsProps> = ({}) => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/run/active`, fetcher);
-  if (isLoading) return <Loading elementCount={3} />;
+  const { data, isLoading, error } = useSWR("/run/active", fetcher);
 
+  if (isLoading) return <Loading elementCount={3} />;
   if (error) return <Error code={error.code} />;
 
   return (
