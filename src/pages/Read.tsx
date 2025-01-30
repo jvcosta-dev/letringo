@@ -18,6 +18,7 @@ import BackButton from "../components/ui/BackButton";
 import Button from "../components/ui/Button";
 import Loading from "../components/ui/Loading";
 import GenericModal from "../components/ui/GenericModal";
+import StreakIncrease from "../components/stats/StreakIncrease";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.8.69/pdf.worker.min.mjs`;
 
@@ -34,6 +35,8 @@ const Read: FunctionComponent = () => {
   const [scale, setScale] = useState(1);
   const [readingTime, setReadingTime] = useState(0);
   const [pdfBlobUrl, setPdfBlobUrl] = useState<string | null>(null);
+
+  const [isIncreased, setIsIncreased] = useState(false);
 
   useEffect(() => {
     if (data?.run?.id && !pdfBlobUrl) {
@@ -99,7 +102,6 @@ const Read: FunctionComponent = () => {
       setReadingTime(0);
       const timer = setInterval(() => {
         setReadingTime((prev) => prev + 1);
-        console.log("set time");
       }, 1000);
 
       return () => clearInterval(timer);
@@ -127,8 +129,7 @@ const Read: FunctionComponent = () => {
     e.preventDefault();
 
     try {
-      console.log("increment init");
-      await request(
+      const res = await request(
         {
           url: `/run/${id}`,
           data: {
@@ -139,9 +140,13 @@ const Read: FunctionComponent = () => {
         },
         true
       );
+
       mutate(`/run/${id}`);
-      console.log("increment pageNumber");
       setPageNumber(pageNumber + 1);
+      if (res.created) {
+        console.log("a");
+        setIsIncreased(true);
+      }
     } catch (error) {
       if (isAxiosError(error) && error.response?.data) {
         return <Navigate to={"/"} replace />;
@@ -218,6 +223,7 @@ const Read: FunctionComponent = () => {
                 : `Marcar ${pageNumber} Como Lida`}
             </Button>
           </form>
+          {isIncreased && <StreakIncrease />}
         </>
       ) : (
         <GenericModal label="Arquivo Necessário">
