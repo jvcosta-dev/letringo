@@ -12,16 +12,28 @@ interface UserMessageProps {}
 const UserMessage: FunctionComponent<UserMessageProps> = () => {
   const { fetcher } = useUser();
 
-  const { data, isLoading, error } = useSWR(`/auth/me`, fetcher);
-  if (isLoading) return <Loading />;
-  if (error) {
-    return <Error code={error.code} />;
+  const {
+    data: streakData,
+    isLoading: isStreakLoading,
+    error: streakError,
+  } = useSWR(`/stats/streak`, fetcher);
+  const {
+    data: userData,
+    isLoading: isUserLoading,
+    error: userError,
+  } = useSWR(`/auth/me`, fetcher);
+
+  if (isStreakLoading || isUserLoading) return <Loading singleElement />;
+  if (streakError || userError) {
+    return <Error code={streakError?.code || userError?.code} />;
   }
 
   return (
     <section className="w-full flex items-center justify-between">
-      <MainTitle start>Bem vindo ao Letringo! @{data.display_name}</MainTitle>
-      <Streak />
+      <MainTitle start>
+        Bem vindo ao Letringo! @{userData.display_name}
+      </MainTitle>
+      <Streak streak={streakData.streak} />
     </section>
   );
 };
