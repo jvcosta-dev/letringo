@@ -15,7 +15,7 @@ function Library() {
   if (error) return <Error code={error.code} />;
   if (isLoading)
     return (
-      <Page>
+      <Page isInLayout>
         <Loading singleElement />
         <Loading elementCount={4} />
       </Page>

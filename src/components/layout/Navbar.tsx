@@ -11,7 +11,7 @@ interface NavbarProps {}
 
 const Navbar: FunctionComponent<NavbarProps> = () => {
   return (
-    <nav className="w-full py-6 px-6 md:px-32 lg:px-52 xl:px-[512px] border-t-4 border-neutral-gray dark:border-neutral-dark">
+    <nav className="w-full py-4 px-6 md:px-32 lg:px-52 xl:px-[512px]">
       <ul className="flex items-center justify-between">
         <NavItem href="/" ariaLabel="início" Icon={HomeRounded} />
         <NavItem
