@@ -26,7 +26,7 @@ const ConfirmModal: FunctionComponent<ConfirmModalProps> = ({
         exit={animations ? { opacity: 0, scale: 0 } : undefined}
         className="z-40 absolute top-0 left-0 w-screen min-h-screen flex items-center justify-center bg-neutral-dark/90 dark:bg-neutral-950 px-2 no-doc-scroll"
       >
-        <div className="w-max flex flex-col gap-5 rounded-3xl border-4 border-b-8 p-6 border-neutral-gray dark:border-white dark:bg-black min-w-80">
+        <div className="w-max flex flex-col gap-5 rounded-3xl border-4 border-b-8 p-6 border-neutral-gray dark:border-white bg-white dark:bg-black min-w-80">
           <MainTitle start>{label}</MainTitle>
           <blockquote className="text-xl">{description}</blockquote>
           <div className="flex justify-end">
