@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Page from "../components/layout/Page";
 import Section from "../components/layout/Section";
 import BackButton from "../components/ui/BackButton";
@@ -16,6 +17,7 @@ function Settings() {
     toggleSound,
   } = useSettings();
   const { logout } = useUser();
+  const navigate = useNavigate();
   return (
     <Page>
       <BackButton />
@@ -38,7 +40,15 @@ function Settings() {
               onChange={toggleDarkMode}
             />
           </div>
-          <Button ariaLabel="finalizar sessão" size="xl" onClick={logout} fill>
+          <Button
+            ariaLabel="finalizar sessão"
+            size="xl"
+            onClick={() => {
+              logout;
+              navigate("/login");
+            }}
+            fill
+          >
             Finalizar Sessão
           </Button>
         </div>

@@ -31,8 +31,6 @@ function Login() {
     } catch (error) {
       if (error instanceof AxiosError) {
         setErr(getErrorMessage(error.response?.data.errorCode));
-      } else {
-        setErr("Erro de conexão");
       }
       return;
     }
