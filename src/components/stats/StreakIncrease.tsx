@@ -19,13 +19,14 @@ const StreakIncrease: FunctionComponent<StreakIncreaseProps> = () => {
 
   useEffect(() => {
     if (data && data.streak) {
+      setDisplayValue(data.streak - 1);
       if (sound) {
         const audio = new Audio("/sounds/tada.mp3");
         audio.play();
       }
       const timer = setTimeout(() => {
         setDisplayValue(data.streak);
-      }, 2000);
+      }, 1500);
 
       return () => clearTimeout(timer);
     }
@@ -39,42 +40,46 @@ const StreakIncrease: FunctionComponent<StreakIncreaseProps> = () => {
     return <div></div>;
   }
   return (
-    <div className="bg-white fixed top-0 left-0 w-screen h-screen flex flex-col justify-between py-6 px-6 md:px-32 lg:px-52 xl:px-[512px]">
-      <motion.div
-        initial={{ opacity: 0, y: 200 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.8, ease: "anticipate" }}
-        className="flex flex-col flex-grow items-center justify-center"
-      >
-        <motion.span
-          initial={{ scale: 4 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2, ease: "anticipate" }}
-        >
-          <WhatshotRounded
-            style={{ width: 144, height: 144 }}
-            className="text-red"
-          />
-        </motion.span>
-        <div className="flex flex-col items-center gap-2">
-          <h1 className="text-5xl font-bold">{displayValue}</h1>
+    <>
+      {data && (
+        <div className="bg-white fixed top-0 left-0 w-screen h-screen flex flex-col justify-between py-6 px-6 md:px-32 lg:px-52 xl:px-[512px]">
+          <motion.div
+            initial={{ opacity: 0, y: 200 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.8, ease: "anticipate" }}
+            className="flex flex-col flex-grow items-center justify-center"
+          >
+            <motion.span
+              initial={{ scale: 4 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 2, ease: "anticipate" }}
+            >
+              <WhatshotRounded
+                style={{ width: 144, height: 144 }}
+                className="text-red"
+              />
+            </motion.span>
+            <div className="flex flex-col items-center gap-2">
+              <h1 className="text-5xl font-bold">{displayValue}</h1>
 
-          <h2 className="text-2xl font-bold">Dias de Ofensiva!</h2>
-          <p className="text-xl text-center">
-            Complete a leitura de uma página todos os dias para construir sua
-            ofensiva.
-          </p>
+              <h2 className="text-2xl font-bold">Dias de Ofensiva!</h2>
+              <p className="text-xl text-center">
+                Complete a leitura de uma página todos os dias para construir
+                sua ofensiva.
+              </p>
+            </div>
+          </motion.div>
+          <Button
+            size="xl"
+            ariaLabel="continuar"
+            fill
+            onClick={() => setClosed(true)}
+          >
+            continuar
+          </Button>
         </div>
-      </motion.div>
-      <Button
-        size="xl"
-        ariaLabel="continuar"
-        fill
-        onClick={() => setClosed(true)}
-      >
-        continuar
-      </Button>
-    </div>
+      )}
+    </>
   );
 };
 
