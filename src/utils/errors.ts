@@ -10,6 +10,7 @@ const errorMessages: { [key: number]: string } = {
   2000: "Entidade não processável.",
   3000: "Erro interno no sistema.",
   4000: "Não autorizado.",
+  5000: "Código de Convite Inválido.",
 };
 
 export function getErrorMessage(code: number): string {

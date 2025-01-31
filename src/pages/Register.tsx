@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import {
   AlternateEmailRounded,
+  Diversity3Rounded,
   MailRounded,
   PersonRounded,
   VpnKeyRounded,
@@ -26,6 +27,7 @@ function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [inviteCode, setInviteCode] = useState("");
 
   const [err, setErr] = useState("");
 
@@ -49,7 +51,13 @@ function Register() {
       await request({
         url: "/auth/signup",
         method: "POST",
-        data: { full_name: name, display_name: username, email, password },
+        data: {
+          full_name: name,
+          display_name: username,
+          email,
+          password,
+          invite_code: inviteCode,
+        },
       });
     } catch (error) {
       if (error instanceof AxiosError) {
@@ -126,6 +134,18 @@ function Register() {
             Icon={VpnKeyRounded}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setConfirmPassword(e.target.value)
+            }
+            required
+          />
+          <Input
+            label="Código de Convite"
+            name="inviteCode"
+            placeholder=""
+            type="text"
+            value={inviteCode}
+            Icon={Diversity3Rounded}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setInviteCode(e.target.value)
             }
             required
           />
