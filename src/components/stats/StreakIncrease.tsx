@@ -42,7 +42,7 @@ const StreakIncrease: FunctionComponent<StreakIncreaseProps> = () => {
   return (
     <>
       {data && (
-        <div className="bg-white fixed top-0 left-0 w-screen h-screen flex flex-col justify-between py-6 px-6 md:px-32 lg:px-52 xl:px-[512px]">
+        <div className="bg-white dark:bg-black dark:text-white fixed top-0 left-0 w-screen h-screen flex flex-col justify-between py-6 px-6 md:px-32 lg:px-52 xl:px-[512px]">
           <motion.div
             initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}
