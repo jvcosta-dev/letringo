@@ -143,6 +143,9 @@ const Read: FunctionComponent = () => {
 
       mutate(`/run/${id}`);
       mutate("/run/active");
+      mutate("/stats/streak");
+      mutate("/stats");
+      mutate("/stats/monthly");
       setPageNumber(pageNumber + 1);
       if (res.created) {
         console.log("a");
